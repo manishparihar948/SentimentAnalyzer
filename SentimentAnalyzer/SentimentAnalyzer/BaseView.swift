@@ -10,15 +10,17 @@ import SwiftUI
 struct BaseView: View {
     @StateObject private var viewModel  = SentimentViewModel()
     var body: some View {
-        TabView{
+        TabView {
             AnalyzerView(viewModel: viewModel)
                 .tabItem {
-                    Label("Analyze", systemImage: "text.magnifyingglass")
+                    Label("Analyze",
+                    systemImage: "text.magnifyingglass")
                 }
 
-            HistoryView()
+            HistoryView(viewModel: viewModel)
                 .tabItem {
-                    Label("History", systemImage: "clock.arrow.circlepath")
+                    Label("History",
+                        systemImage: "clock.arrow.circlepath")
                 }
         }
     }
