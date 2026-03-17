@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct BaseView: View {
+    @StateObject private var viewModel  = SentimentViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView{
+            AnalyzerView(viewModel: viewModel)
+                .tabItem {
+                    Label("Analyze", systemImage: "text.magnifyingglass")
+                }
+
+            HistoryView()
+                .tabItem {
+                    Label("History", systemImage: "clock.arrow.circlepath")
+                }
+        }
     }
 }
 
